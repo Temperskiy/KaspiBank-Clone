@@ -4,22 +4,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
+    - uses: subosito/flutter-action@v2
       with:
         flutter-version: '3.24.0'
         channel: 'stable'
     
-    - name: Create project
-      run: |
-        flutter create --project-name=kaspi_clone --org=com.kaspi --platforms=android .
-        mkdir -p lib
-        cp -r /home/runner/work/*/lib/* lib/ 2>/dev/null || true
+    - name: Create Android files
+      run: flutter create --project-name=kaspi_clone --org=com.kaspi --platforms=android .
     
-    - name: Install dependencies
+    - name: Get dependencies
       run: flutter pub get
     
     - name: Build APK
