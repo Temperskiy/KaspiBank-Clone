@@ -1,137 +1,31 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const KaspiApp());
+  runApp(const MyApp());
 }
 
-class KaspiApp extends StatelessWidget {
-  const KaspiApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Kaspi Bank',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: const Color(0xFFE31E24),
-        scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFE31E24),
-          foregroundColor: Colors.white,
-          elevation: 0,
-          centerTitle: true,
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFE31E24),
-            foregroundColor: Colors.white,
-            minimumSize: const Size(double.infinity, 56),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(14),
-            ),
-            textStyle: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text('Kaspi Clone', style: TextStyle(fontSize: 32, color: Color(0xFFE31E24))),
+              SizedBox(height: 20),
+              Text('Приложение работает! 🚀'),
+            ],
           ),
         ),
       ),
-      home: const LoginScreen(),
     );
   }
-}
-
-// ЭКРАН ВХОДА
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final _phoneController = TextEditingController();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  bool _isRegistering = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.fromLTRB(24, 60, 24, 40),
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFFE31E24), Color(0xFFC41A1F)],
-                    begin: Alignment.topCenter,
-                    end: Alignment.center,
-                  ),
-                ),
-                child: const Column(
-                  children: [
-                    Text('Kaspi bank', style: TextStyle(color: Colors.white, fontSize: 48, fontWeight: FontWeight.w900)),
-                    SizedBox(height: 30),
-                    Text('Добро пожаловать!', style: TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.w600)),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.all(20),
-                padding: const EdgeInsets.all(24),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  children: [
-                    if (_isRegistering) ...[
-                      TextField(
-                        controller: _nameController,
-                        decoration: const InputDecoration(
-                          labelText: 'Имя в Kaspi',
-                          hintText: 'Алия Маратовна',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                      TextField(
-                        controller: _emailController,
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
-                          labelText: 'Электронная почта',
-                          hintText: 'example@mail.ru',
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      const SizedBox(height: 16),
-                    ],
-                    TextField(
-                      controller: _phoneController,
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        labelText: 'Ваш любой номер',
-                        hintText: '7771234567',
-                        prefixText: '+7 ',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    ElevatedButton(
-                      onPressed: _handleSubmit,
-                      child: Text(_isRegistering ? 'Зарегистрироваться' : 'Продолжить'),
-                    ),
-                    const SizedBox(height: 12),
-                    TextButton(
-                      onPressed: () => setState(() => _isRegistering = !_isRegistering),
-                      child: Text(_isRegistering ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Зарегистрироваться'),
-                    ),
-                  ],
-                ),
+}                ),
               ),
             ],
           ),
