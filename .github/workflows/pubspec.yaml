@@ -1,7 +1,7 @@
 name: kaspi_clone
-description: Kaspi Bank Clone
+description: Kaspi Bank Clone Premium
 publish_to: 'none'
-version: 1.0.0+1
+version: 2.0.0+1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -10,11 +10,22 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
+  shared_preferences: ^2.3.4
+  local_auth: ^2.3.0
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^6.0.2
+  provider: ^6.1.2
+  fl_chart: ^0.69.2
+  image_picker: ^1.1.2
+  path_provider: ^2.1.5
+  pdf: ^3.11.1
+  printing: ^5.13.4
+  share_plus: ^10.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
